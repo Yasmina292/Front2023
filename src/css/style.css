@@ -1,0 +1,199 @@
+* {
+  /* Обнуление отступов и полей у всех элементов */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter"; /* Используемый шрифт */
+}
+
+body {
+  background-color: #1a1a1a; /* Цвет фона для всего документа */
+}
+
+.container {
+  /* Обертка контента */
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 800px;
+}
+
+.header {
+  /* Заголовок */
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0D0D0D;
+}
+
+.todo__input-field {
+  /* Поле ввода задачи и кнопка добавления */
+  display: flex;
+  justify-content: space-between;
+  column-gap: 8px;
+}
+
+.todo__input-text[type=text] {
+  /* Поле ввода текста задачи */
+  width: 90%;
+  height: 54px;
+  background: #262626;
+  border: 1px solid #0D0D0D;
+  border-radius: 8px;
+  color: #808080;
+  font-size: 16px;
+  padding: 16px;
+  border: none;
+}
+
+.todo__add-btn {
+  /* Кнопка добавления задачи */
+  display: flex;
+  column-gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 52px;
+  background: #1E6F9F;
+  border-radius: 8px;
+  color: #F2F2F2;
+  border: none;
+}
+
+.icon-plus {
+  /* Иконка плюса в кнопке добавления */
+  margin-top: 3px;
+}
+
+.todo {
+  /* Контейнер списка задач */
+  margin-top: -28px;
+}
+
+.todoList {
+  /* Список задач */
+  margin: 10px 0;
+}
+
+.todoList__wrapper-top {
+  /* Верхняя панель списка задач */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.todoList__counter {
+  /* Счетчики задач */
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.todoList__counter-total {
+  /* Счетчик общего количества задач */
+  color: #4EA8DE;
+  margin-right: 10px;
+}
+
+.todoList__counter-done {
+  /* Счетчик выполненных задач */
+  color: #8284FA;
+  margin-left: auto;
+}
+
+.todoList__empty {
+  /* Стили для пустого списка задач */
+  padding-top: 10%;
+  height: 272px;
+}
+
+.todoList__empty img {
+  /* Изображение для пустого списка задач */
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.todoList__empty p {
+  /* Текст для пустого списка задач */
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  text-align: center;
+  color: #808080;
+}
+
+.todoList__ul {
+  list-style-type: none; /* Убирает маркеры у элементов списка задач */
+}
+
+.todoList__li {
+  /* Элемент списка задач */
+  position: relative;
+  margin: 12px 0;
+  background: #262626;
+  border: 1px solid #333333;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoList__li p {
+  /* Текст задачи */
+  font-size: 14px;
+  line-height: 140%;
+  color: #F2F2F2;
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-left: 10px; /* Добавлено для создания отступа между текстом задания и корзиной */
+}
+
+.todoList__li-cart {
+  /* Иконка корзины для удаления задачи */
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background: url("cart-icon.png") no-repeat center center;
+  background-size: contain;
+  margin-left: 10px;
+}
+
+.todoList__li-cart:hover {
+  /* Стили при наведении на иконку корзины */
+  filter: sepia(100%) saturate(1652%);
+}
+
+.task {
+  /* Контейнер для задачи */
+  display: flex;
+  align-items: center;
+}
+
+.task__checkbox {
+  /* Чекбокс для задачи */
+  margin-right: 10px;
+}
+
+.todoList__counter span {
+  /* Окружность со счетчиком задач */
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F2F2F2;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.todoList__counter.done {
+  /* Счетчик выполненных задач */
+  color: #8284FA;
+}
+

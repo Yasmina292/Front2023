@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <title>TodoList</title>
+</head>
+
+<body>
+  <header class="header">
+    <!-- Логотип -->
+    <h1>
+      <img src="./src/img/logo.svg" alt="">
+    </h1>
+  </header>
+  <main>
+    <section class="todo">
+      <div class="container">
+        <div class="todo__input-field">
+          <!-- Поле ввода задачи -->
+          <input type="text" class="todo__input-text" onkeydown="KeyDown(event)">
+          <!-- Кнопка добавления задачи -->
+          <button class="todo__add-btn" onclick="add()">Add<span class="icon-plus"><img src="./src/img/plus.svg"
+                alt=""></span></button>
+        </div>
+      </div>
+    </section>
+    <section class="todoList">
+      <div class="container">
+        <div class="todoList__wrapper">
+          <div class="todoList__wrapper-top">
+            <!-- Счетчик задач -->
+            <p class="todoList__counter">
+              Total
+              <span>0</span>
+            </p>
+            <!-- Счетчик выполненных задач -->
+            <p class="todoList__counter">
+              Done
+              <span>0</span>
+            </p>
+          </div>
+          <hr>
+          <div class="todoList__wrapper-bottom">
+            <!-- Блок для пустого списка задач -->
+            <div class="todoList__empty" style="display: none;">
+              <img src="./src/img/Clipboard.png" alt="">
+              <p>Você ainda não tem tarefas cadastradas <br>
+                <span style="font-weight: 400;">Crie tarefas e organize seus itens a fazer</span>
+              </p>
+            </div>
+            <!-- Список задач -->
+            <ul id="taskList" class="todoList__ul">
+              <li class="todoList__li">
+                <div class="task">
+                  <!-- Чекбокс задачи -->
+                  <input type="checkbox" class="task__checkbox">
+                  <!-- Текст задачи -->
+                  <p class="task__text">TO DO LIST 2023</p>
+                  <!-- Иконка корзины для удаления задачи -->
+                  <img src="./src/img/cart.svg" alt="" class="todoList__li-cart">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./src/js/main.js"></script>
+</body>
+
+</html>
+
