@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Секундомер</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      margin-top: 100px;
+    }
+    
+    h1 {
+      font-size: 32px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    
+    .timer {
+      font-size: 64px;
+      color: #333333;
+      margin-bottom: 40px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #ffffff;
+      background-color: #FF5722;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn:hover {
+      background-color: #E64A19;
+    }
+    
+    .btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Секундомер</h1>
+  <div class="timer">00:00:00</div>
+  <button class="btn" onclick="startTimer()" id="start">Старт</button>
+  <button class="btn" onclick="stopTimer()" id="stop" disabled>Стоп</button>
+  <button class="btn" onclick="resetTimer()" id="reset" disabled>Сброс</button>
+  
+  
+  <script>
+    var timerInterval;
+    var hours = 0, minutes = 0, seconds = 0;
+    var timerDisplay = document.querySelector('.timer');
+    var startBtn = document.getElementById('start');
+    var stopBtn = document.getElementById('stop');
+    var resetBtn = document.getElementById('reset');
+    
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(updateTimer, 1000);
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+      resetBtn.disabled = true;
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+      resetBtn.disabled = false;
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      hours = 0;
+      minutes = 0;
+      seconds = 0;
+      updateTimerDisplay();
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+      resetBtn.disabled = true;
+    }
+
+    function updateTimer() {
+      seconds++;
+      if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+      }
+      if (minutes === 60) {
+        minutes = 0;
+        hours++;
+      }
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      var formattedTime = padNumber(hours) + ':' + padNumber(minutes) + ':' + padNumber(seconds);
+      timerDisplay.textContent = formattedTime;
+    }
+
+    function padNumber(num) {
+      return num.toString().padStart(2, '0');
+    }
+  </script>
+</body>
+</html>
